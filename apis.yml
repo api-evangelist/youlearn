@@ -1,25 +1,100 @@
 aid: youlearn
+
 name: YouLearn
-description: 'YouLearn is a company surfaced via the API Evangelist harvest backlog (source: vc-portfolio;
-  backed by true-ventures) and added to the network as a stub for full-pipeline profiling.'
+
+image: https://framerusercontent.com/assets/XivrxXuIUuSjflrSGDEo0UF5eg.png
+
+description: 'YouLearn is a company surfaced via the API Evangelist harvest backlog (source: vc-portfolio; backed by true-ventures) and added
+  to the network as a stub for full-pipeline profiling.'
+
 url: https://raw.githubusercontent.com/api-evangelist/youlearn/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:vc-portfolio
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-24 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-24'
+
 modified: '2026-10-24'
+
 tags:
 - Company
-apis: []
+- Education
+- AI
+- Tutoring
+- Learning
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-x-backed-by:
-- true-ventures
+
 common:
+- type: Vendors
+  url: vendors/youlearn-vendors.yml
+- type: Spectral
+  url: rules/youlearn-rules.yml
+- type: JSONLD
+  url: json-ld/youlearn-context.jsonld
+- type: Vocabulary
+  url: vocabulary/youlearn-vocabulary.yml
+- type: DataModel
+  url: data-model/youlearn-data-model.yml
+- type: Conformance
+  url: conformance/youlearn-conformance.yml
+- type: SecurityTxt
+  url: well-known/youlearn-vercel-security.txt
+- type: WellKnown
+  url: well-known/youlearn-well-known.yml
+- type: Hosts
+  url: hosts/youlearn-hosts.yml
+- type: TermsOfService
+  url: https://www.youlearn.ai/terms-conditions
+- type: PrivacyPolicy
+  url: https://www.youlearn.ai/privacy-policy
+- type: Login
+  url: https://app.youlearn.ai/signin
+- type: GettingStarted
+  url: https://vercel.com/docs/getting-started-with-vercel.md?from=llms-txt
+- type: Documentation
+  url: https://dev.youlearn.ai/
+- type: APIReference
+  url: https://vercel.com/llms.txt
+- type: DomainSecurity
+  url: security/youlearn-domain-security.yml
 - type: Website
   url: https://youlearn.ai
+
+apis:
+- aid: youlearn:youlearn-api
+  name: YouLearn API
+  description: 'YouLearn API as documented publicly: 20 operations. Contract generated from the documentation by API Evangelist (2026-10-24);
+    not the provider''s own document.'
+  humanURL: https://vercel.com/openapi.json
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/youlearn-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/youlearn-post-v1-billing-buy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/youlearn-post-v1-billing-buy-response-schema.json
+  - type: JSONSchema
+    url: json-schema/youlearn-post-v1-registrar-domains-price-request-schema.json
+  - type: JSONSchema
+    url: json-schema/youlearn-post-v1-registrar-domains-search-request-schema.json
+
+x-backed-by:
+- true-ventures
+x-enrichment:
+  date: '2026-10-24'
+  status: enriched
+  artifacts_added: 23
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

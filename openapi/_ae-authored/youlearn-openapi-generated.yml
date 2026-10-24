@@ -1,0 +1,426 @@
+openapi: 3.1.0
+info:
+  title: YouLearn API
+  version: '2026-10-24'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-24: 20 operation(s) read from 6 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; YouLearn has published no machine-readable contract that the
+    pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 14
+    pages-with-code: 3
+    pages-read: 6
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-24'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://vercel.com/openapi.json
+  - https://vercel.com/docs/rest-api.md
+  - https://vercel.com/docs/webhooks.md
+  - https://vercel.com/domains/get-started.md
+  - https://vercel.com/docs/accounts/access-tokens.md
+  - https://vercel.com/docs/cli/tokens.md
+paths:
+  /api-keys:
+    post:
+      operationId: post_api_keys
+      tags:
+      - Api Keys
+      summary: POST /api-keys
+      x-source: https://vercel.com/docs/rest-api.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /domains/records/{recordid}:
+    get:
+      operationId: get_domains_records_recordid
+      tags:
+      - Domains
+      summary: GET /domains/records/{recordId}
+      x-source: https://vercel.com/docs/rest-api.md
+      parameters:
+      - name: recordid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /domains/{domain}/records:
+    put:
+      operationId: put_domains_domain_records
+      tags:
+      - Domains
+      summary: PUT /domains/{domain}/records
+      x-source: https://vercel.com/docs/rest-api.md
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /speed-insights/toggle:
+    post:
+      operationId: post_speed_insights_toggle
+      tags:
+      - Speed Insights
+      summary: POST /speed-insights/toggle
+      x-source: https://vercel.com/docs/rest-api.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/access-groups/{accessgroupidorname}/projects:
+    post:
+      operationId: post_v1_access_groups_accessgroupidorname_projects
+      tags:
+      - Access Groups
+      summary: Access tokens
+      x-source: https://vercel.com/docs/accounts/access-tokens.md
+      parameters:
+      - name: accessgroupidorname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/billing/buy:
+    post:
+      operationId: post_v1_billing_buy
+      tags:
+      - Billing
+      summary: Purchase credits
+      description: Purchases credits for a Vercel team using the default payment method on file. The purchase is charged immediately via Stripe
+        invoice. Supported credit types are `v0`, `gateway`, and `agent`. The `amount` field specifies the number of credits to purchase and must
+        be a positive integer. An optional `source` query parameter can be provided to identify the caller. Defaults to `api` if not specified.
+        This is only available for Owner, Member, Developer, Security, and Billing roles for the supplied team.
+      x-source: https://vercel.com/openapi.json
+      parameters:
+      - name: teamId
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The Team identifier to perform the request on behalf of.
+      - name: slug
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The Team slug to perform the request on behalf of.
+      - name: source
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Optional source identifier for the caller.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BillingBuyRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1BillingBuyResponse'
+      x-evidence:
+        kind: documentation
+  /v1/billing/charges:
+    get:
+      operationId: get_v1_billing_charges
+      tags:
+      - Billing
+      summary: GET /v1/billing/charges
+      x-source: https://vercel.com/openapi.json
+      parameters:
+      - name: teamId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl\",\n            \"label\": \"cURL\",\n            \"source\": \"curl -N --request GET \\\\\\n  --url 'https://api.vercel.com/v1/billing/charges?teamId=<team>&from=<from_date>&to=<to_date>'\
+          \ \\\\\\n  --header 'Authorization: Bearer <token>' \\\\\\n  --header 'Accept-Encoding: gzip' \\\\\\n  --compressed\\n\"\n         \
+          \ }\n        ]\n      }\n    },\n    \"/v1/billing/contract-commitments\": {\n      \"get\": {\n        \"descript"
+  /v1/registrar/domains/price:
+    post:
+      operationId: post_v1_registrar_domains_price
+      tags:
+      - Registrar
+      summary: POST /v1/registrar/domains/price
+      x-source: https://vercel.com/domains/get-started.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1RegistrarDomainsPriceRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -fsS ''https://api.vercel.com/v1/registrar/domains/price''  -H ''Content-Type: application/json''  -d ''{"domains":["getacme.dev"]}''
+
+          ```'
+  /v1/registrar/domains/search:
+    post:
+      operationId: post_v1_registrar_domains_search
+      tags:
+      - Registrar
+      summary: POST /v1/registrar/domains/search
+      x-source: https://vercel.com/domains/get-started.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1RegistrarDomainsSearchRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -fsS ''https://api.vercel.com/v1/registrar/domains/search''  -H ''Content-Type: application/json''  -d ''{"domains":["acme.com","acme.dev","getacme.dev"]}''
+
+          ```'
+  /v1/registrar/tlds/supported:
+    get:
+      operationId: get_v1_registrar_tlds_supported
+      tags:
+      - Registrar
+      summary: GET /v1/registrar/tlds/supported
+      x-source: https://vercel.com/domains/get-started.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl -fsS ''https://api.vercel.com/v1/registrar/tlds/supported''
+
+          ```'
+  /v1/webhooks:
+    get:
+      operationId: get_v1_webhooks
+      tags:
+      - Webhooks
+      summary: Get a list of webhooks
+      x-source: https://vercel.com/docs/webhooks.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_v1_webhooks
+      tags:
+      - Webhooks
+      summary: Creates a webhook
+      x-source: https://vercel.com/docs/webhooks.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/webhooks/{id}:
+    get:
+      operationId: get_v1_webhooks_id
+      tags:
+      - Webhooks
+      summary: Get a webhook
+      x-source: https://vercel.com/docs/webhooks.md
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v2/observability/query:
+    post:
+      operationId: post_v2_observability_query
+      tags:
+      - Observability
+      summary: POST /v2/observability/query
+      x-source: https://vercel.com/docs/rest-api.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v2/observability/schema:
+    get:
+      operationId: get_v2_observability_schema
+      tags:
+      - Observability
+      summary: GET /v2/observability/schema
+      x-source: https://vercel.com/docs/rest-api.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v2/observability/schema/{metricid}:
+    get:
+      operationId: get_v2_observability_schema_metricid
+      tags:
+      - Observability
+      summary: GET /v2/observability/schema/{metricId}
+      x-source: https://vercel.com/docs/rest-api.md
+      parameters:
+      - name: metricid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v6/user/tokens:
+    get:
+      operationId: get_v6_user_tokens
+      tags:
+      - User
+      summary: Access tokens
+      x-source: https://vercel.com/docs/accounts/access-tokens.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v7/deployments:
+    get:
+      operationId: get_v7_deployments
+      tags:
+      - Deployments
+      summary: GET /v7/deployments
+      x-source: https://vercel.com/docs/accounts/access-tokens.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl "https://api.vercel.com/v7/deployments"  -H "Authorization: Bearer $VERCEL_ACCESS_TOKEN"
+
+          ```'
+  /v9/projects:
+    get:
+      operationId: get_v9_projects
+      tags:
+      - Projects
+      summary: GET /v9/projects
+      x-source: https://vercel.com/docs/accounts/access-tokens.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl "https://api.vercel.com/v9/projects"  -H "Authorization: Bearer vcp_xxxxxxxxxxxxxxxxxxxxxxxx"
+
+          ```'
+  /web/insights/toggle:
+    post:
+      operationId: post_web_insights_toggle
+      tags:
+      - Web
+      summary: POST /web/insights/toggle
+      x-source: https://vercel.com/docs/rest-api.md
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostV1BillingBuyRequest:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Number of credits to purchase; must be a positive integer.
+        type:
+          type: string
+          description: Credit type to purchase (e.g., `v0`, `gateway`, `agent`).
+      required:
+      - amount
+      - type
+    PostV1BillingBuyResponse:
+      type: object
+      properties:
+        checkoutSessionId:
+          type: string
+        checkoutSessionUrl:
+          type: string
+        purchaseIntent:
+          type: object
+    PostV1RegistrarDomainsPriceRequest:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+    PostV1RegistrarDomainsSearchRequest:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: Access Groups
+- name: Api Keys
+- name: Billing
+- name: Deployments
+- name: Domains
+- name: Observability
+- name: Projects
+- name: Registrar
+- name: Speed Insights
+- name: User
+- name: Web
+- name: Webhooks

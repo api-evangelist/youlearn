@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youlearn/main/json-schema/youlearn-post-v1-registrar-domains-search-request-schema.json",
+  "title": "PostV1RegistrarDomainsSearchRequest",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/youlearn-openapi-generated.yml#/components/schemas/PostV1RegistrarDomainsSearchRequest",
+  "type": "object",
+  "properties": {
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

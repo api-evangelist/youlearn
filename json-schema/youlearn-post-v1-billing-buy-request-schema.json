@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youlearn/main/json-schema/youlearn-post-v1-billing-buy-request-schema.json",
+  "title": "PostV1BillingBuyRequest",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/youlearn-openapi-generated.yml#/components/schemas/PostV1BillingBuyRequest",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "integer",
+      "description": "Number of credits to purchase; must be a positive integer."
+    },
+    "type": {
+      "type": "string",
+      "description": "Credit type to purchase (e.g., `v0`, `gateway`, `agent`)."
+    }
+  },
+  "required": [
+    "amount",
+    "type"
+  ]
+}
